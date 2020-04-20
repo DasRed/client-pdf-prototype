@@ -1,0 +1,359 @@
+/**
+ * "Yet Another Multicolumn Layout" - (X)HTML/CSS Framework
+ *
+ * (en) CSS-component for creating vertical forms
+ * (de) CSS-Baustein zur Erstellung von Formularen mit untereinander angeordneten Elementen
+ *
+ * @note            Many thanks to Ansgar Hein (http://www.anatom5.de) for contribution
+ *
+ * @copyright       Copyright 2005-2010, Dirk Jesse
+ * @license         CC-A 2.0 (http://creativecommons.org/licenses/by/2.0/),
+ *                  YAML-C (http://www.yaml.de/en/license/license-conditions.html)
+ * @link            http://www.yaml.de
+ * @package         yaml
+ * @version         3.3
+ * @revision        $Revision: 470 $
+ * @lastmodified    $Date: 2010-10-03 18:16:04 +0200 (So, 03 Okt 2010) $
+ */
+
+@media screen, projection
+{
+  /**
+   *  YAML Forms - visual styling
+   *
+   *  (en) visual form styling area
+   *  (de) Festlegung des optischen Erscheinungsbildes
+   */
+
+  .yform {
+    margin:0 0 1em 0;
+    padding:10px;
+  }
+
+  .yform fieldset {
+    margin:0 0 1em 0;
+    padding:0.5em;
+  }
+
+  .yform .type-button input {
+  border: none;
+  color: #333333;
+  text-shadow: 1px 1px 1px #dddddd;
+  font-size: 1.3em;
+  line-height: 20px;
+  padding: 0 14px;
+  background: #c08803; /* Old browsers */
+  display: inline-block;
+  *zoom: 1;
+  *display: inline;
+  }
+
+ /*------------------------------------------------------------------------------------------------------*/
+
+ /**
+  * Vertical-Forms - technical base (standard)
+  *
+  * |-------------------------------|
+  * | fieldset                      |
+  * |-------------------------------|
+  * |   label                       |
+  * |   input / select / textarea   |
+  * |-------------------------------|
+  * | /fieldset                     |
+  * |-------------------------------|
+  *
+  * (en) Styling of forms where both label and input/select/textarea are styled with display:block;
+  * (de) Formulargestaltung, bei der sowohl label als auch input/select/textarea mit display:block; gestaltet werden
+  *
+  * WARNING:This part contains several IE-stability-fixes. Don't edit this part if you are not sure, what you're doing!
+  */
+
+  /* General form styling  | Allgemeine Formatierung des Formulars */
+  .yform fieldset { display:block; zoom:1; }
+  .yform label { display:block; cursor:pointer; }
+  .yform legend { background:transparent; border:0; padding:0 0.5em; }
+  .yform .message { display:block; margin-bottom:0.5em; }
+
+  /* Hiding of hidden fields (otherwise ugly spaces in Firefox) | Versteckte Felder wirklich verstecken (sonst ggf. häßliche Lücken im Firefox) */
+  .yform input[type=hidden] { display:none !important; }
+
+  /* per row float clearing | zeilenweises Float-Clearing */
+  fieldset:after,
+  .yform div.type-text:after,
+  .yform div.type-select:after,
+  .yform div.type-check:after,
+  .yform div.type-button:after {
+    clear:both;
+    content:".";
+    display:block;
+    font-size:0;
+    height:0;
+    visibility:hidden;
+  }
+
+  /* styling containing DIV elements | Gestaltung der kapselnden DIV-Elemente */
+  .yform div.type-text,
+  .yform div.type-select,
+  .yform div.type-check,
+  .yform div.type-button {
+		display:block;
+    margin:0.5em 0;
+    padding:3px 0;  
+    position:relative;
+		zoom:1; 
+  }
+  
+  .yform .buttons {
+		margin-left: 115px;
+	}
+
+  .yform div.type-button {
+		float:left;
+		margin-right: 10px;
+		
+	}
+
+  
+  .yform div.type-button {
+    padding:3px 0em;  
+  }
+  
+  /* styling standard form elements with 'almost' equal flexible width | Gestaltung der einzelnen Formularelemente mit annähend gleicher Breite */
+  .yform .type-text input,
+  .yform .type-text textarea {
+    display:block;
+    position:relative;
+    padding:0.3em 0.3em;
+    /*width:58.5%;*/
+ 	width: 200px;
+  }
+
+  .yform .type-select select {
+    display:block;
+    position:relative;
+    padding:0.3em 2px 0.3em 1px;
+    width:60%;
+    cursor:pointer;
+  }
+
+  .yform .type-check input { cursor:pointer; float: left;}
+  .yform .type-check label { display:inline; float: left; width: 300px; margin-left: 10px;}
+
+  /* Styling of buttons | Gestaltung von Buttons */
+  .yform .type-button input {
+  border: none;
+  color: #333333;
+  text-shadow: 1px 1px 1px #dddddd;
+  font-size: 1.3em;
+  line-height: 20px;
+  padding: 0 14px;
+  background: #c08803; /* Old browsers */
+  display: inline-block;
+  *zoom: 1;
+  *display: inline;
+	
+  
+  background: -moz-linear-gradient(top, #FFF7DA 0%, #FDCD13 100%); 
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#FFF7DA), color-stop(100%,#FDCD13)); 
+  background: -webkit-linear-gradient(top, #FFF7DA 0%,#FDCD13 100%); 
+  background: -o-linear-gradient(top, #FFF7DA 0%,#FDCD13 100%);
+  background: -ms-linear-gradient(top, #FFF7DA 0%,#FDCD13 100%); 
+  background: linear-gradient(top, #FFF7DA 0%,#FDCD13 100%); 
+  filter: none;
+  
+  -webkit-background-clip: padding-box;
+  -moz-background-clip: padding-box;
+  -o-background-clip: padding-box;
+  -ms-background-clip: padding-box;
+  background-clip: padding-box;  
+
+  border: 1px solid rgba(238,189,17,0.25);
+  border-radius: 6px;  
+  
+  text-decoration: none;	
+}
+
+.yform .type-button input:focus,
+.yform .type-button input:hover,
+.yform .type-button input:active {
+  background: #333333; /* Old browsers */
+  background: -moz-linear-gradient(top, #333333 0%, #333333 100%); /* FF3.6+ */
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#333333), color-stop(100%,#333333)); /* Chrome,Safari4+ */
+  background: -webkit-linear-gradient(top, #333333 0%,#333333 100%); /* Chrome10+,Safari5.1+ */
+  background: -o-linear-gradient(top, #333333 0%,#333333 100%); /* Opera 11.10+ */
+  background: -ms-linear-gradient(top, #333333 0%,#333333 100%); /* IE10+ */
+  background: linear-gradient(top, #333333 0%,#333333 100%); /* W3C */  
+  filter: none;
+  color: #FFFFFF;
+  text-shadow: none;
+}
+	
+  /* Styling of error-messages | Fehlermeldungen */
+  .yform div.error {
+    padding:0.5em;
+    text-align: center;
+  }
+
+  /* avoid jumping checkboxes & radiobuttons in IE8 */
+  .yform div.type-check input:focus,
+  .yform div.type-check input:hover,
+  .yform div.type-check input:active { border:0 none; }
+
+ /*------------------------------------------------------------------------------------------------------*/
+
+  /* Indent Checkbox fields to match label-width | Checkboxen um den gleichen Wert einrücken, wie die Breite der labels */
+
+  .full div.type-text input,
+  .full div.type-text textarea { width:95.5%; margin-right: -3px; }
+  .full div.type-select select { width:97.0%; margin-right: -3px; }
+  
+  /* width adjustments for IE 5.x & IE6 | Breitenanpassung für Internet Explorer 5.x und 6.0 */
+  * html .full div.type-text input,
+  * html .full div.type-text textarea { width:95.5%; }
+  * html .full div.type-select select { width:97.0%; }
+
+ /*------------------------------------------------------------------------------------------------------*/
+
+ /**
+  * Columnar forms display - technical base (optional)
+  *
+  * |-------------------------------------------|
+  * | fieldset                                  |
+  * |-------------------------------------------|
+  * |                                           |
+  * |   label   |   input / select / textarea   |
+  * |                                           |
+  * |-------------------------------------------|
+  * | /fieldset                                 |
+  * |-------------------------------------------|
+  *
+  * (en) Styling of forms where label floats left of form-elements
+  * (de) Formulargestaltung, bei der die label-Elemente nach links fließen
+  *
+  * WARNING:This part contains several IE-stability-fixes. Don't edit this part if you are not sure, what you're doing!
+  */
+
+  /* Columnar display | Spalten-Darstellung */
+  .columnar .type-text label,
+  .columnar .type-select label {
+    float:left;
+    /*width:30%;*/ /* Can be fixed width too | Kann auch eine fixe Angabe sein */
+   	width: 100px;
+   	text-align: right;
+   	padding-right: 10px;
+  }
+
+  /* Indent Checkbox fields to match label-width | Checkboxen um den gleichen Wert einrücken, wie die Breite der labels */
+  .columnar div.type-check input { /*margin-left:30%;*/ margin-left: 115px; }
+  .columnar div.error .message { /*margin-left:30%;*/ }
+
+  .columnar fieldset div.type-button,
+  fieldset.columnar div.type-button { /*padding-left:30%;*/ }
+
+  .columnar div.type-text input,
+  .columnar div.type-text textarea { float:left; /*width:67.8%;*/ width: 315px; margin-right: -3px; }
+  .columnar div.type-select select { float:left; /*width:69.4%;*/ width: 322px; margin-right: -3px; }
+  
+  .columnar .twoInALine {margin-top: -6px; margin-bottom: -6px;}
+  .columnar .twoInALine .type-text {float: left;}
+  .columnar .twoInALine .type-text + .type-text {padding-left: 0.5em}
+  .columnar .twoInALine .type-text input { width: 151px; }
+  
+  /* width adjustments for IE 5.x & IE6 | Breitenanpassung für Internet Explorer 5.x und 6.0 */
+  * html .columnar div.type-text input,
+  * html .columnar div.type-text textarea { width:67.2%; }
+  * html .columnar div.type-select select { width:68.8%; }
+  
+ /*------------------------------------------------------------------------------------------------------*/
+
+ /**
+  *
+  * @workaround
+  * @affected IE 5.x/Win, IE6, IE7
+  * @css-for IE 5.x/Win, IE6, IE7
+  * @valid no
+  */
+
+  .yform, 
+  .yform div,
+  .yform div * { zoom:1; }
+
+ /**
+  * Forms Fieldset/Legend-Bug in IE
+  * @see http://www.mattheerema.com/web-design/2006/04/getting-fieldset-backgrounds-and-legends-to-behave-in-ie/
+  *
+  * @workaround
+  * @affected IE 5.x/Win, IE6, IE7, IE8
+  * @css-for IE 5.x/Win, IE6, IE7, IE8
+  * @valid no
+  */
+  
+  /* all IE */
+  .yform { padding-top:0\9; }
+  .yform fieldset { padding:0 5px\9; padding-top:1em\9; }
+  .yform legend { position:absolute\9; top:-.5em\9; *left:0\9; }
+  .yform fieldset { position:relative\9; overflow:visible\9;  margin-top:1.5em\9; zoom:1; }
+
+  /* IE5.x, IE6 & IE7 */
+  .yform legend { *padding:0 5px; }
+  .yform fieldset { *padding-top:1.5em; }
+  
+  /* IE5.x & IE6 */
+  * html .yform { padding-top:10px; }
+  
+  
+  /* Salesoffer form */
+  .salesoffer_form {float:left;width:500px;margin-right:10px;}
+  .salesoffer_info {float:left;width: 180px;}
+  .salesoffer .type-text label, .salesoffer .type-select label {width:130px;}
+  .salesoffer .buttons {margin-left: 50px;}
+  .salesoffer .type-text label.error, .salesoffer .type-select label.error { 
+	float: right;
+    margin-right: 20px;
+    width: 298px;
+  }
+  .salesoffer .twoInALine {
+	position: relative;
+  }
+  .salesoffer .twoInALine .type-text {
+    float: left;
+    position: relative;
+    width: 480px;
+  }  
+  .salesoffer .twoInALine .type-text input {
+    width: 240px;
+  }
+  .salesoffer .twoInALine .type-text input#zip {
+	width: 60px;
+	margin-right:9px;
+  }
+  .salesoffer .twoInALine .type-text input#city{
+    display: block;
+    position: absolute;
+    right: 27px;
+  }
+  .yform .type-check label {
+	float: right;
+    margin-right: 38px;
+	padding-top: 0px;
+  }
+  .yform .type-check label.error {
+	margin-right:20px;
+	padding-top: 2px;
+  }
+
+  /*
+  .salesoffer .twoInALine .type-text label.error {
+	position: absolute;
+	bottom:0px;
+  }
+*/
+  select.input_border_light, 
+  input[type="file"].input_border_light, 
+  input[type="text"].input_border_light, 
+  input[type="password"].input_border_light, 
+  input[type="email"].input_border_light, 
+  input.date, 
+  textarea.input_border_light {border: 1px solid #cccccc;}
+
+}
