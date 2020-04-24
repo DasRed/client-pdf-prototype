@@ -6,5 +6,8 @@
     "html2canvas": "^1.0.0-rc.5",
     "html2pdf.js": "^0.9.2",
     "jspdf": "^1.5.3"
+  },
+  "devDependencies": {
+    "acorn": "^5.7.4"
   }
 }
